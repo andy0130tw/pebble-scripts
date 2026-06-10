@@ -128,7 +128,10 @@ class Font:
         self.offset_tables = [[] for i in range(self.table_size)]
         self.offset_size_bytes = 4
         self.features = 0
+
+        ###
         self.fauxbold = False
+        self.heightoffset = 0
 
         self.glyph_header = "".join(
             (
@@ -180,6 +183,9 @@ class Font:
 
     def set_fauxbold(self, b):
         self.fauxbold = b
+
+    def set_heightoffset(self, h):
+        self.heightoffset = h
 
     def is_supported_glyph(self, codepoint):
         return self.face.get_char_index(codepoint) > 0 or (
@@ -309,33 +315,34 @@ class Font:
 
     def glyph_bits(self, codepoint, gindex):
         flags = (
-            0
+            freetype.FT_LOAD_TARGETS['FT_LOAD_TARGET_NORMAL']
             if self.legacy
             else 0
-            | freetype.FT_LOAD_MONOCHROME
-            | freetype.FT_LOAD_TARGET_MONO
+            | freetype.FT_LOAD_FLAGS['FT_LOAD_MONOCHROME']
+            | freetype.FT_LOAD_TARGETS['FT_LOAD_TARGET_MONO']
         )
         self.face.load_glyph(gindex, flags)
 
         if self.fauxbold:
             import ctypes
-            strength = 64
+            strength = 32
             slot = self.face.glyph
             outline = slot.outline._FT_Outline
 
-            err = freetype.FT_Outline_Embolden(
+            err = freetype.FT_Outline_EmboldenXY(
                 ctypes.byref(outline),
                 strength,
+                0,
             )
             if err:
-                raise RuntimeError(f"FT_Outline_Embolden failed: {err}")
+                raise RuntimeError(f"FT_Outline_EmboldenXY failed: {err}")
 
             # Optional but usually important for text layout:
             # increase advance so the next glyph doesn't collide.
             slot.advance.x += strength // 64
             slot._FT_GlyphSlot.contents.metrics.horiAdvance += strength // 64
 
-        self.face.glyph.render(freetype.FT_RENDER_MODE_NORMAL)
+        self.face.glyph.render(freetype.FT_RENDER_MODES['FT_RENDER_MODE_MONO'])
 
         # Font metrics
         bitmap = self.face.glyph.bitmap
@@ -346,7 +353,7 @@ class Font:
         width = bitmap.width
         height = bitmap.rows
         left = self.face.glyph.bitmap_left
-        bottom = self.max_height - self.face.glyph.bitmap_top
+        bottom = self.max_height - self.face.glyph.bitmap_top + self.heightoffset
         pixel_mode = self.face.glyph.bitmap.pixel_mode
 
         glyph_packed = []

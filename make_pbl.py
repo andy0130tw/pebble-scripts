@@ -5,7 +5,7 @@ sys.path.append(os.path.join(os.environ['PEBBLE_SDK_PATH'], 'pebble/common/tools
 sys.path.append(os.path.join(os.environ['PEBBLE_SDK_PATH'], 'pebble/common/waftools'))
 
 from pbpack import ResourcePack
-from resources.resource_map.resource_generator_font import FontResourceGenerator
+# from resources.resource_map.resource_generator_font import FontResourceGenerator
 
 
 pack = ResourcePack(is_system=False)
@@ -13,15 +13,15 @@ pack = ResourcePack(is_system=False)
 RES_SLOT_NUM = 19
 
 ress = [
-  'strings.mo',
-  'huninn-14.pbf',
-  'huninn-14-bold.pbf',
-  'huninn-18.pbf',
-  'huninn-18-bold.pbf',
-  'huninn-24.pbf',
-  'huninn-24-bold.pbf',
-  'huninn-28.pbf',
-  'huninn-28-bold.pbf',
+  'zh_TW/zh_TW.mo',
+  'cubic.pbf',
+  'cubic.pbf',
+  'cubic-offs.pbf',
+  'cubic-offs.pbf',
+  'kuro-v5-light/002-24px',
+  'kuro-v5-regular/005-24px',
+  'kuro-v5-light/000-28px',
+  'kuro-v5-regular/002-28px',
 ]
 
 for res in ress:
@@ -31,5 +31,5 @@ for res in ress:
 for _ in range(RES_SLOT_NUM - len(ress)):
     pack.add_resource(b'')
 
-with open('huninn.pbl', 'wb') as out:
+with open('cubic-kuro.pbl', 'wb') as out:
     pack.serialize(out)
