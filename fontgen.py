@@ -434,6 +434,11 @@ class Font:
 
     def build_tables(self):
         def build_hash_table(bucket_sizes):
+            cost_per_bucket = self.offset_size_bytes + self.codepoint_bytes
+            max_glyph_count = 65536 // cost_per_bucket
+            num_buckets = sum(bucket_sizes)
+            if num_buckets >= max_glyph_count:
+                raise Exception(f'Hashtable offset overflowed. In current configuration you can only have {max_glyph_count} glyphs, but you selected {num_buckets}.')
             acc = 0
             for i in range(self.table_size):
                 bucket_size = bucket_sizes[i]
