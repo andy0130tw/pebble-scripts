@@ -18,10 +18,16 @@ ress = [
   'cubic.pbf',
   'cubic-offs.pbf',
   'cubic-offs.pbf',
-  'kuro-v5-light/002-24px',
-  'kuro-v5-regular/005-24px',
-  'kuro-v5-light/000-28px',
-  'kuro-v5-regular/002-28px',
+  'noto-24.pbf',
+  'noto-24-bold.pbf',
+  'noto-28.pbf',
+  'noto-28-bold.pbf',
+  # 'noto-28.pbf',
+  # 'kuro-v5-regular/002-28px',
+  # 'kuro-v5-light/002-24px',
+  # 'kuro-v5-regular/005-24px',
+  # 'kuro-v5-light/000-28px',
+  # 'kuro-v5-regular/002-28px',
 ]
 
 for res in ress:
@@ -31,5 +37,5 @@ for res in ress:
 for _ in range(RES_SLOT_NUM - len(ress)):
     pack.add_resource(b'')
 
-with open('cubic-kuro.pbl', 'wb') as out:
+with open('cubic-sarasa-fauxbold64.pbl', 'wb') as out:
     pack.serialize(out)

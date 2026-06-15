@@ -187,6 +187,12 @@ class Font:
     def set_heightoffset(self, h):
         self.heightoffset = h
 
+    def set_weight(self, w):
+        vinfo = self.face.get_variation_info()
+        if len(vinfo.axes) == 0 or vinfo.axes[0].tag != "wght":
+            raise Exception('No weight axis to set')
+        self.face.set_var_design_coords((w,))
+
     def is_supported_glyph(self, codepoint):
         return self.face.get_char_index(codepoint) > 0 or (
             codepoint == chr(self.wildcard_codepoint)
@@ -324,23 +330,24 @@ class Font:
         self.face.load_glyph(gindex, flags)
 
         if self.fauxbold:
-            import ctypes
-            strength = 32
-            slot = self.face.glyph
-            outline = slot.outline._FT_Outline
+            # mocking the behavior of FT_GlyphSlot_AdjustWeight
+            # operating on outlines has a mixed result on glyphs than on bitmaps,
+            # because sometimes a bolden stem is not picked up by the rasterizer
 
+            # see @medicalwei's for an alt. impl. that emboldens the bitmap:
+            # https://gist.github.com/medicalwei/c9fdcd9ec19b0c363ec1
+
+            strength = 64
+            # only embold X, no Y
             err = freetype.FT_Outline_EmboldenXY(
-                ctypes.byref(outline),
+                self.face.glyph.outline._FT_Outline,
                 strength,
                 0,
             )
             if err:
-                raise RuntimeError(f"FT_Outline_EmboldenXY failed: {err}")
+                raise Exception(f"FT_Outline_EmboldenXY failed: {err}")
 
-            # Optional but usually important for text layout:
-            # increase advance so the next glyph doesn't collide.
-            slot.advance.x += strength // 64
-            slot._FT_GlyphSlot.contents.metrics.horiAdvance += strength // 64
+            self.face.glyph.advance.x += strength
 
         self.face.glyph.render(freetype.FT_RENDER_MODES['FT_RENDER_MODE_MONO'])
 
@@ -359,13 +366,14 @@ class Font:
         glyph_packed = []
         if height and width:
             glyph_bitmap = []
-            if pixel_mode == 1:  # monochrome font, 1 bit per pixel
+            if pixel_mode == freetype.ft_pixel_mode_mono:  # monochrome font, 1 bit per pixel
                 for i in range(bitmap.rows):
                     row = []
                     for j in range(bitmap.pitch):
                         row.extend(bits(bitmap.buffer[i * bitmap.pitch + j]))
                     glyph_bitmap.extend(row[: bitmap.width])
-            elif pixel_mode == 2:  # grey font, 255 bits per pixel
+            elif pixel_mode == freetype.ft_pixel_mode_grays:  # grey font, 255 bits per pixel
+                assert bitmap.num_grays == 256
                 for val in bitmap.buffer:
                     glyph_bitmap.extend([1 if val > 127 else 0])
             else:
@@ -494,7 +502,8 @@ class Font:
         self.number_of_glyphs = 0
         glyph_indices_lookup = dict()
         next_offset = 4
-        codepoint, gindex = self.face.get_first_char()
+        chars_gen = self.face.get_chars()
+        # codepoint, gindex = self.face.get_first_char()
 
         # add wildcard_glyph
         offset, next_offset, glyph_indices_lookup = add_glyph(
@@ -502,7 +511,10 @@ class Font:
         )
         glyph_entries.append((WILDCARD_CODEPOINT, offset))
 
-        while gindex:
+        # while gindex:
+        for codepoint, gindex in chars_gen:
+            if not gindex: break
+
             # Hard limit on the number of glyphs in a font
             if self.number_of_glyphs > self.max_glyphs:
                 break
@@ -526,7 +538,7 @@ class Font:
                 )
                 glyph_entries.append((codepoint, offset))
 
-            codepoint, gindex = self.face.get_next_char(codepoint, gindex)
+            # codepoint, gindex = self.face.get_next_char(codepoint, gindex)
 
         # Decide if we need 2 byte or 4 byte offsets
         glyph_data_bytes = sum(len(glyph) for glyph in self.glyph_table)
