@@ -106,13 +106,13 @@ def bits(x):
 
 
 class Font:
-    def __init__(self, ttf_path, height, max_glyphs, max_glyph_size, legacy):
+    def __init__(self, ttf_path, height, max_glyphs, max_glyph_size, legacy, max_height=None):
         self.version = FONT_VERSION_3
         self.ttf_path = ttf_path
-        self.max_height = int(height)
+        self.max_height = int(max_height) if max_height is not None else int(height)
         self.legacy = legacy
         self.face = freetype.Face(self.ttf_path)
-        self.face.set_pixel_sizes(0, self.max_height)
+        self.face.set_pixel_sizes(0, height)
         self.name = self.face.family_name + b"_" + self.face.style_name
         self.wildcard_codepoint = WILDCARD_CODEPOINT
         self.number_of_glyphs = 0

@@ -1,29 +1,33 @@
+from collections import namedtuple
 from fontgen import Font
+
 
 MAX_GLYPHS_EXTENDED = 255 * 128
 MAX_GLYPH_SIZE = 512
 
+PbfSpec = namedtuple('PbfSpec', 'name maxh pxsize inp cpsrc bold')
+
 specs = [
-    ('24',      18, 5, False),
-    ('24-bold', 18, 5, True),
-    ('28',      21, 5, False),
-    ('28-bold', 21, 5, True),
+    PbfSpec('cubic-14.pbf',   14, 12, 'Cubic_11.ttf',             'cubic11-cps.json', False),
+    PbfSpec('cubic-18.pbf',   18, 12, 'Cubic_11.ttf',             'cubic11-cps.json', False),
+
+    PbfSpec('sarasa-24.pbf',  24, 19, 'SarasaGothicTC-Light.ttf', 'cps-kuro.json',    False),
+    PbfSpec('sarasa-24b.pbf', 24, 19, 'SarasaGothicTC-Light.ttf', 'cps-kuro.json',    True),
+    PbfSpec('sarasa-28.pbf',  28, 21, 'SarasaGothicTC-Light.ttf', 'cps-kuro.json',    False),
+    PbfSpec('sarasa-28b.pbf', 28, 21, 'SarasaGothicTC-Light.ttf', 'cps-kuro.json',    True),
 ]
-fauxbold = [False, True]
 
 for spec in specs:
     print('spec', spec)
-    name, px, offs, bb = spec
+    name, maxh, pxsize, inp, cpsrc, bb = spec
 
-    f = Font(f'SarasaGothicTC-Light.ttf', px, MAX_GLYPHS_EXTENDED, MAX_GLYPH_SIZE, False)
+    f = Font(inp, pxsize, MAX_GLYPHS_EXTENDED, MAX_GLYPH_SIZE, False, max_height=maxh)
 
-    f.set_codepoint_list('cps-kuro.json')
+    f.set_codepoint_list(cpsrc)
     if bb:
         f.set_fauxbold(True)
 
-    f.set_heightoffset(offs)
-
     f.build_tables()
 
-    with open(f'noto-{name}.pbf', 'wb') as out:
+    with open(name, 'wb') as out:
         out.write(f.bitstring())
