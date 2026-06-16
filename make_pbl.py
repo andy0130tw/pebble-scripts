@@ -22,8 +22,6 @@ ress = [
   'sarasa-24b.pbf',
   'sarasa-28.pbf',
   'sarasa-28b.pbf',
-  # 'noto-28.pbf',
-  # 'kuro-v5-regular/002-28px',
   # 'kuro-v5-light/002-24px',
   # 'kuro-v5-regular/005-24px',
   # 'kuro-v5-light/000-28px',

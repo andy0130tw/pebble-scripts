@@ -13,8 +13,8 @@ specs = [
 
     PbfSpec('sarasa-24.pbf',  24, 19,  0, 'SarasaGothicTC-Light.ttf', 'cps-kuro.json',    False),
     PbfSpec('sarasa-24b.pbf', 24, 19,  0, 'SarasaGothicTC-Light.ttf', 'cps-kuro.json',    True),
-    PbfSpec('sarasa-28.pbf',  28, 21,  0, 'SarasaGothicTC-Light.ttf', 'cps-kuro.json',    False),
-    PbfSpec('sarasa-28b.pbf', 28, 21,  0, 'SarasaGothicTC-Light.ttf', 'cps-kuro.json',    True),
+    PbfSpec('sarasa-28.pbf',  28, 21, -2, 'SarasaGothicTC-Light.ttf', 'cps-kuro.json',    False),
+    PbfSpec('sarasa-28b.pbf', 28, 21, -2, 'SarasaGothicTC-Light.ttf', 'cps-kuro.json',    True),
 ]
 
 for spec in specs:
