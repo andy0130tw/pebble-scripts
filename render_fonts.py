@@ -1,8 +1,8 @@
 from collections import namedtuple
-from fontgen import Font
+from fontgen import Font, MAX_GLYPHS_EXTENDED
 
 
-MAX_GLYPHS_EXTENDED = 255 * 128
+# for emery and gabbro this value is raised to 512; see tools/pebble_sdk_platform.py in PebbleOS
 MAX_GLYPH_SIZE = 512
 
 PbfSpec = namedtuple('PbfSpec', 'name maxh pxsize offs inp cpsrc bold')

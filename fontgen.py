@@ -366,13 +366,13 @@ class Font:
         glyph_packed = []
         if height and width:
             glyph_bitmap = []
-            if pixel_mode == freetype.ft_pixel_mode_mono:  # monochrome font, 1 bit per pixel
+            if pixel_mode == freetype.FT_PIXEL_MODES['FT_PIXEL_MODE_MONO']:  # monochrome font, 1 bit per pixel
                 for i in range(bitmap.rows):
                     row = []
                     for j in range(bitmap.pitch):
                         row.extend(bits(bitmap.buffer[i * bitmap.pitch + j]))
                     glyph_bitmap.extend(row[: bitmap.width])
-            elif pixel_mode == freetype.ft_pixel_mode_grays:  # grey font, 255 bits per pixel
+            elif pixel_mode == freetype.FT_PIXEL_MODES['FT_PIXEL_MODE_GRAY']:  # grey font, 8 bits per pixel
                 assert bitmap.num_grays == 256
                 for val in bitmap.buffer:
                     glyph_bitmap.extend([1 if val > 127 else 0])
