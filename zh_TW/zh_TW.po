@@ -20,95 +20,95 @@ msgstr ""
 
 #: src/fw/applib/pbl_std/timelocal.c:38
 msgid "Jan"
-msgstr "一月"
+msgstr "1月"
 
 #: src/fw/applib/pbl_std/timelocal.c:38
 msgid "Feb"
-msgstr "二月"
+msgstr "2月"
 
 #: src/fw/applib/pbl_std/timelocal.c:38
 msgid "Mar"
-msgstr "三月"
+msgstr "3月"
 
 #: src/fw/applib/pbl_std/timelocal.c:38
 msgid "Apr"
-msgstr "四月"
+msgstr "4月"
 
 #: src/fw/applib/pbl_std/timelocal.c:38 src/fw/applib/pbl_std/timelocal.c:43
 msgid "May"
-msgstr "五月"
+msgstr "5月"
 
 #: src/fw/applib/pbl_std/timelocal.c:39
 msgid "Jun"
-msgstr "六月"
+msgstr "6月"
 
 #: src/fw/applib/pbl_std/timelocal.c:39
 msgid "Jul"
-msgstr "七月"
+msgstr "7月"
 
 #: src/fw/applib/pbl_std/timelocal.c:39
 msgid "Aug"
-msgstr "八月"
+msgstr "8月"
 
 #: src/fw/applib/pbl_std/timelocal.c:39
 msgid "Sep"
-msgstr "九月"
+msgstr "9月"
 
 #: src/fw/applib/pbl_std/timelocal.c:39
 msgid "Oct"
-msgstr "十月"
+msgstr "10月"
 
 #: src/fw/applib/pbl_std/timelocal.c:40
 msgid "Nov"
-msgstr "十一月"
+msgstr "11月"
 
 #: src/fw/applib/pbl_std/timelocal.c:40
 msgid "Dec"
-msgstr "十二月"
+msgstr "12月"
 
 #: src/fw/applib/pbl_std/timelocal.c:42
 msgid "January"
-msgstr "一月"
+msgstr "1月"
 
 #: src/fw/applib/pbl_std/timelocal.c:42
 msgid "February"
-msgstr "二月"
+msgstr "2月"
 
 #: src/fw/applib/pbl_std/timelocal.c:42
 msgid "March"
-msgstr "三月"
+msgstr "3月"
 
 #: src/fw/applib/pbl_std/timelocal.c:42
 msgid "April"
-msgstr "四月"
+msgstr "4月"
 
 #: src/fw/applib/pbl_std/timelocal.c:43
 msgid "June"
-msgstr "六月"
+msgstr "6月"
 
 #: src/fw/applib/pbl_std/timelocal.c:43
 msgid "July"
-msgstr "七月"
+msgstr "7月"
 
 #: src/fw/applib/pbl_std/timelocal.c:43
 msgid "August"
-msgstr "八月"
+msgstr "8月"
 
 #: src/fw/applib/pbl_std/timelocal.c:44
 msgid "September"
-msgstr "九月"
+msgstr "9月"
 
 #: src/fw/applib/pbl_std/timelocal.c:44
 msgid "October"
-msgstr "十月"
+msgstr "10月"
 
 #: src/fw/applib/pbl_std/timelocal.c:44
 msgid "November"
-msgstr "十一月"
+msgstr "11月"
 
 #: src/fw/applib/pbl_std/timelocal.c:44
 msgid "December"
-msgstr "十二月"
+msgstr "12月"
 
 #: src/fw/applib/pbl_std/timelocal.c:46 src/fw/services/alarms/alarm.c:1394
 msgid "Sun"
@@ -146,32 +146,32 @@ msgstr "週日"
 #: src/fw/applib/pbl_std/timelocal.c:49
 #: src/fw/apps/system/weather/weather.c:141
 msgid "Monday"
-msgstr "週一"
+msgstr "星期一"
 
 #: src/fw/applib/pbl_std/timelocal.c:49
 #: src/fw/apps/system/weather/weather.c:141
 msgid "Tuesday"
-msgstr "週二"
+msgstr "星期二"
 
 #: src/fw/applib/pbl_std/timelocal.c:49
 #: src/fw/apps/system/weather/weather.c:141
 msgid "Wednesday"
-msgstr "週三"
+msgstr "星期三"
 
 #: src/fw/applib/pbl_std/timelocal.c:50
 #: src/fw/apps/system/weather/weather.c:142
 msgid "Thursday"
-msgstr "週四"
+msgstr "星期四"
 
 #: src/fw/applib/pbl_std/timelocal.c:50
 #: src/fw/apps/system/weather/weather.c:142
 msgid "Friday"
-msgstr "週五"
+msgstr "星期五"
 
 #: src/fw/applib/pbl_std/timelocal.c:50
 #: src/fw/apps/system/weather/weather.c:142
 msgid "Saturday"
-msgstr "週六"
+msgstr "星期六"
 
 #: src/fw/applib/pbl_std/timelocal.c:52
 msgid "%H:%M:%S"
@@ -179,15 +179,15 @@ msgstr "%H:%M:%S"
 
 #: src/fw/applib/pbl_std/timelocal.c:53
 msgid "%m/%d/%y"
-msgstr "%m/%d/%y"
+msgstr "%y/%m/%d"
 
 #: src/fw/applib/pbl_std/timelocal.c:54
 msgid "%a %b %e %H:%M:%S %Y"
-msgstr "%a %b %e %H:%M:%S %Y"
+msgstr "%Y/%b/%e %a %H:%M:%S"
 
 #: src/fw/applib/pbl_std/timelocal.c:55
 msgid "%I:%M:%S %p"
-msgstr "%I:%M:%S %p"
+msgstr "%p %I:%M:%S"
 
 #: src/fw/applib/pbl_std/timelocal.c:59
 #: src/fw/applib/ui/date_time_selection_window_private.c:76
@@ -219,18 +219,18 @@ msgstr ":"
 #: src/fw/applib/template_string.c:222 src/fw/applib/template_string.c:224
 msgctxt "TmplStringSep"
 msgid " "
-msgstr ""
+msgstr " "
 
 #: src/fw/applib/template_string.c:228
 msgctxt "TmplStringSep"
 msgid ", "
-msgstr "又"
+msgstr "、"
 
 #. / The second separator in `<hour> hours, <minute> minutes, and <second> seconds`
 #: src/fw/applib/template_string.c:230
 msgctxt "TmplStringSep"
 msgid ", and "
-msgstr "又"
+msgstr "又 "
 
 #. / Suffixes for seconds with no units
 #. / Suffixes for minutes with no units
@@ -583,8 +583,6 @@ msgid "1 hour"
 msgstr "1 小時"
 
 #: src/fw/apps/system/alarms/alarm_detail.c:347
-#, fuzzy
-#| msgid "Off"
 msgctxt "AlarmSound"
 msgid "Off"
 msgstr "關"
@@ -788,7 +786,7 @@ msgstr ""
 #: src/fw/apps/system/health/ui.c:65
 #, c-format
 msgid "TYPICAL %s"
-msgstr "%s的通常記錄"
+msgstr "平常的%s"
 
 #. / Shown when the current temperature is unknown
 #: src/fw/apps/system/launcher/default/app_glance_weather.c:117
@@ -1090,7 +1088,6 @@ msgid "Tap"
 msgstr "點一下"
 
 #: src/fw/apps/system/settings/display.c:210
-#| msgid "Off"
 msgctxt "TouchWake"
 msgid "Off"
 msgstr "關閉"
@@ -1105,8 +1102,6 @@ msgid "Wake on touch"
 msgstr "觸碰時喚醒"
 
 #: src/fw/apps/system/settings/display.c:234
-#, fuzzy
-#| msgid "Off"
 msgctxt "DynBacklight"
 msgid "Off"
 msgstr "關"
@@ -1173,7 +1168,7 @@ msgstr "縮放 (雙線性插值)"
 
 #: src/fw/apps/system/settings/display.c:307
 msgid "Legacy App Display"
-msgstr "舊版應用程式顯示"
+msgstr "舊版應用程式"
 
 #: src/fw/apps/system/settings/display.c:412
 #, c-format
@@ -2113,7 +2108,7 @@ msgstr "降水"
 #: src/fw/apps/system/weather/forecast_list.c:2216
 #, no-c-format
 msgid "%a, %b %d"
-msgstr "%a, %b %d"
+msgstr "%b%d日 %a"
 
 #: src/fw/apps/system/weather/globe_view.c:2157
 msgid "Saved Location"
