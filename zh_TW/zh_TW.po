@@ -141,7 +141,7 @@ msgstr "週六"
 #: src/fw/applib/pbl_std/timelocal.c:49
 #: src/fw/apps/system/weather/weather.c:141
 msgid "Sunday"
-msgstr "週日"
+msgstr "星期日"
 
 #: src/fw/applib/pbl_std/timelocal.c:49
 #: src/fw/apps/system/weather/weather.c:141
@@ -2205,15 +2205,15 @@ msgstr "可能會下雨"
 
 #: src/fw/apps/system/weather/weather_app_layout.c:417
 msgid "Chance of snow"
-msgstr "降雪機率"
+msgstr "有機會下雪"
 
 #: src/fw/apps/system/weather/weather_app_layout.c:419
 msgid "Chance of sleet"
-msgstr "降雨夾雪機率"
+msgstr "有機會下雨夾雪"
 
 #: src/fw/apps/system/weather/weather_app_layout.c:421
 msgid "Chance of rain"
-msgstr "降雨機率"
+msgstr "有機會下雨"
 
 #: src/fw/apps/system/weather/weather_app_layout.c:459
 msgid "Hail"
@@ -2221,7 +2221,7 @@ msgstr "冰雹"
 
 #: src/fw/apps/system/weather/weather_app_layout.c:461
 msgid "Chance of storms"
-msgstr "暴風雨機率"
+msgstr "有機會下暴風雨"
 
 #: src/fw/apps/system/weather/weather_app_layout.c:463
 msgid "Heavy snow"
@@ -2273,7 +2273,7 @@ msgstr "能見度差"
 
 #: src/fw/apps/system/weather/weather_app_layout.c:490
 msgid "High humidity"
-msgstr ""
+msgstr "高濕度"
 
 #: src/fw/apps/system/weather/weather_app_layout.c:496
 msgid "Windy"
@@ -2337,16 +2337,16 @@ msgstr "西北"
 
 #: src/fw/apps/system/weather/weather_app_layout.c:548
 msgid "mph"
-msgstr "哩/小時"
+msgstr "mph"
 
 #: src/fw/apps/system/weather/weather_app_layout.c:548
 msgid "km/h"
-msgstr "公里/小時"
+msgstr "km/h"
 
 #: src/fw/apps/system/weather/weather_app_layout.c:550
 #, c-format
 msgid "%s at %d%s."
-msgstr "%s 在 %d%s。"
+msgstr "%s風，風速 %d%s。"
 
 #: src/fw/apps/system/weather/weather_app_layout.c:550
 #, c-format
@@ -2590,7 +2590,7 @@ msgstr ""
 #: src/fw/services/clock/service.c:965
 #, c-format
 msgid "%d"
-msgstr ""
+msgstr "%d"
 
 #: src/fw/apps/watch/tictoc/bw/tictoc_bw.c:75
 #: src/fw/services/clock/service.c:843 src/fw/services/clock/service.c:851
@@ -3501,7 +3501,7 @@ msgstr "%B"
 #: src/fw/services/clock/service.c:974
 #, c-format
 msgid "%e"
-msgstr "%e"
+msgstr "%e日"
 
 #: src/fw/services/clock/service.c:1024
 msgid "this morning"
@@ -3631,7 +3631,7 @@ msgstr "已關閉"
 
 #: src/fw/services/timeline/timeline.c:747
 msgid "Deleted"
-msgstr "刪除"
+msgstr "已刪除"
 
 #: src/fw/services/timeline/timeline.c:776
 msgid "Thanks!"
