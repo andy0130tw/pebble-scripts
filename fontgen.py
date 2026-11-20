@@ -4,6 +4,7 @@
 
 
 import freetype
+import ctypes
 import os
 import re
 import struct
@@ -340,7 +341,7 @@ class Font:
             strength = 64
             # only embold X, no Y
             err = freetype.FT_Outline_EmboldenXY(
-                self.face.glyph.outline._FT_Outline,
+                ctypes.byref(self.face.glyph.outline._FT_Outline),
                 strength,
                 0,
             )
