@@ -8,13 +8,14 @@ MAX_GLYPH_SIZE = 512
 PbfSpec = namedtuple('PbfSpec', 'name maxh pxsize offs inp cpsrc bold')
 
 specs = [
-    PbfSpec('cubic-14.pbf',   14, 12,  0, 'Cubic_11.ttf',             'cubic11-cps.json', False),
-    PbfSpec('cubic-18.pbf',   18, 12, -2, 'Cubic_11.ttf',             'cubic11-cps.json', False),
+    PbfSpec('cubic-14.pbf',   14, 12,  0, 'Cubic_11.ttf',     'cubic11-cps.json', False),
+    PbfSpec('shstw-18.pbf',   18, 15,  0, 'shstw-hinted.ttf', 'cps-kuro.json',    False),
+    PbfSpec('shstw-18b.pbf',  18, 15,  0, 'shstw-hinted.ttf', 'cps-kuro.json',    True),
 
-    PbfSpec('sarasa-24.pbf',  24, 19,  0, 'SarasaGothicTC-Light.ttf', 'cps-kuro.json',    False),
-    PbfSpec('sarasa-24b.pbf', 24, 19,  0, 'SarasaGothicTC-Light.ttf', 'cps-kuro.json',    True),
-    PbfSpec('sarasa-28.pbf',  28, 21, -2, 'SarasaGothicTC-Light.ttf', 'cps-kuro.json',    False),
-    PbfSpec('sarasa-28b.pbf', 28, 21, -2, 'SarasaGothicTC-Light.ttf', 'cps-kuro.json',    True),
+    PbfSpec('shstw-24.pbf',   24, 19,  0, 'shstw-hinted.ttf', 'cps-kuro.json',    False),
+    PbfSpec('shstw-24b.pbf',  24, 19,  0, 'shstw-hinted.ttf', 'cps-kuro.json',    True),
+    PbfSpec('shstw-28.pbf',   28, 21, -2, 'shstw-hinted.ttf', 'cps-kuro.json',    False),
+    PbfSpec('shstw-28b.pbf',  28, 21, -2, 'shstw-hinted.ttf', 'cps-kuro.json',    True),
 ]
 
 for spec in specs:

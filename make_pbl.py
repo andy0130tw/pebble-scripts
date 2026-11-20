@@ -15,17 +15,13 @@ RES_SLOT_NUM = 19
 ress = [
   'zh_TW/zh_TW.mo',
   'cubic-14.pbf',
-  'cubic-14.pbf',
-  'cubic-18.pbf',
-  'cubic-18.pbf',
-  'sarasa-24.pbf',
-  'sarasa-24b.pbf',
-  'sarasa-28.pbf',
-  'sarasa-28b.pbf',
-  # 'kuro-v5-light/002-24px',
-  # 'kuro-v5-regular/005-24px',
-  # 'kuro-v5-light/000-28px',
-  # 'kuro-v5-regular/002-28px',
+  'cubic-14.pbf',  # TODO: no bold for now
+  'shstw-18.pbf',
+  'shstw-18b.pbf',
+  'shstw-24.pbf',
+  'shstw-24b.pbf',
+  'shstw-28.pbf',
+  'shstw-28b.pbf',
 ]
 
 for res in ress:
@@ -35,5 +31,5 @@ for res in ress:
 for _ in range(RES_SLOT_NUM - len(ress)):
     pack.add_resource(b'')
 
-with open('cubic-sarasa-fauxbold64.pbl', 'wb') as out:
+with open('cubic-shstw-beta3f-20261120.pbl', 'wb') as out:
     pack.serialize(out)
